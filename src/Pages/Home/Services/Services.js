@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SingleServiceCard from '../../../components/SingleServiceCard/SingleServiceCard';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
 
@@ -27,7 +28,7 @@ const Services = () => {
 
             </div>
             <div className='flex items-center justify-center'>
-                <button className='btn btn-primary btn-outline px-10 text-lg text-white'> see more</button>
+                <Link to='/all-services'><button className='btn btn-primary btn-outline px-10 text-lg text-white'> see more</button></Link>
             </div>
         </section>
 
