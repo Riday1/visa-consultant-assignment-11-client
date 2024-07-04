@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import SingleServiceCard from '../../../components/SingleServiceCard/SingleServiceCard';
 import { Link } from 'react-router-dom';
+import SingleServiceCard from '../SingleServiceCard/SingleServiceCard';
 
 const Services = () => {
 
