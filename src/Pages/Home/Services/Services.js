@@ -9,7 +9,7 @@ const Services = () => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                setServices(data)
             })
     }, [])
 
@@ -18,12 +18,12 @@ const Services = () => {
             <div className=' my-20 grid grid-cols-1 md:gird-cols-2 lg:grid-cols-3 gap-10 px-20'>
 
                 {
-                    services.map(service => <SingleServiceCard key={service._id}></SingleServiceCard>)
+                    services.map(service => <SingleServiceCard key={service._id} service={service}></SingleServiceCard>)
                 }
 
             </div>
             <div className='flex items-center justify-center'>
-                <button className='btn btn-primary px-10'> see more</button>
+                <button className='btn btn-primary btn-outline px-10 text-lg text-white'> see more</button>
             </div>
         </section>
 

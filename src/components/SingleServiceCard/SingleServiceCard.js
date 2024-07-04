@@ -1,22 +1,23 @@
 import React from 'react';
 
-const SingleServiceCard = () => {
+const SingleServiceCard = ({ service }) => {
+    const { _id, title, img, price, description, ratings } = service;
     return (
         <div className=" hover:scale-105 duration-200 card-compact bg-base-100 w-80 shadow-xl">
             <figure>
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                    src={img}
                     alt="Shoes"
                     className='' />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="flex justify-between">
-                    <p>Price : $</p>
+                <h2 className="card-title text-2xl font-bold text-indigo-600">{title}</h2>
+                <p className='text-gray-500'>{description.length > 100 ? description.slice(0, 100) : ""} <span className='text-indigo-600'>see more...</span></p>
+                <div className="flex justify-between my-4">
+                    <p className='font-semibold text-indigo-500 text-xl'>Price : ${price}</p>
                     <span>ratings</span>
                 </div>
-                <button className="btn btn-outline btn-primary">view details</button>
+                <button className="btn   btn-primary">View Details</button>
             </div>
         </div>
     );
