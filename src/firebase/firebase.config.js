@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBR9wSyJhpwb0kzL9LyhJYuCiXibGgEKQc",
-    authDomain: "visa-consultant-8dab8.firebaseapp.com",
-    projectId: "visa-consultant-8dab8",
-    storageBucket: "visa-consultant-8dab8.appspot.com",
-    messagingSenderId: "704877374622",
-    appId: "1:704877374622:web:e63172e71bbd7e93181f8f"
+    apiKey: process.env.ACCESS_KEY_apiKey,
+    authDomain: process.env.ACCESS_KEY_authDomain,
+    projectId: process.env.ACCESS_KEY_projectId,
+    storageBucket: process.env.ACCESS_KEY_storageBucket,
+    messagingSenderId: process.env.ACCESS_KEY_messagingSenderId,
+    appId: process.env.ACCESS_KEY_appId,
 };
 
 // Initialize Firebase
