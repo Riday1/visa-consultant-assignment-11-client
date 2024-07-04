@@ -1,10 +1,14 @@
 import React from 'react';
 import animation from '../../LottieAnimation/login_animation.json';
 import Lottie from 'react-lottie';
+import { Link } from 'react-router-dom';
 const Login = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
+
+
+
 
         const form = event.target;
         console.log(form)
@@ -50,6 +54,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
+                        <p className='text-center'>don't have any account?<Link to='/register' className='text-indigo-500'>register</Link></p>
                     </form>
                 </div>
             </div>
