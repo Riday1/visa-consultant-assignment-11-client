@@ -17,9 +17,9 @@ const EmployeCard = ({ employe }) => {
                 <h2 className=" text-xl font-bold text-indigo-600 text-center">{name}</h2>
 
                 <div className="flex justify-between my-2 px-8">
-                    <img src={instaLogo} className='w-8 h-8' alt="" />
-                    <img src={facebookLogo} className='w-8 h-8' alt="" />
-                    <img src={linkedInLogo} className='w-8 h-8' alt="" />
+                    <img src={instaLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                    <img src={facebookLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                    <img src={linkedInLogo} className='w-8 h-8 cursor-pointer' alt="" />
                 </div>
 
             </div>
