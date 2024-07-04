@@ -1,0 +1,5 @@
+.banner {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.9)), url('../../../photos//banner/banner_2.jpg')
+}
