@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import animation from '../../LottieAnimation/login_animation.json';
 import Lottie from 'react-lottie';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import googleLogo from "../../photos/social_icon/google.png"
 import instagramLogo from "../../photos/social_icon/instagram.png"
@@ -11,6 +11,9 @@ import facebookLogo from "../../photos/social_icon/facebook.png"
 const Register = () => {
 
     const { createUser, updateUser } = useContext(AuthContext)
+    const navigate = useNavigate();
+
+
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -32,6 +35,7 @@ const Register = () => {
 
                 updateUser(name, photoUrl)
                 form.reset()
+                navigate('/login')
             })
             .catch(err => console.error(err))
 

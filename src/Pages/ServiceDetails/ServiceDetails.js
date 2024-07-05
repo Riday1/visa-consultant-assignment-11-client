@@ -12,7 +12,7 @@ const ServiceDetails = () => {
     return (
         <section>
             <ServiceInfo serviceData={serviceData}></ServiceInfo>
-            <ReviewContainer reviews={reviews}></ReviewContainer>
+            <ReviewContainer serviceData={serviceData} reviews={reviews}></ReviewContainer>
         </section>
     );
 };

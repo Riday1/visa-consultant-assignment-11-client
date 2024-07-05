@@ -12,6 +12,9 @@ const githubProvider = new GithubAuthProvider();
 const googleProvider = new GoogleAuthProvider();
 const auth = getAuth(app)
 export const AuthContext = createContext()
+
+
+
 const AuthProvider = ({ children }) => {
 
 
