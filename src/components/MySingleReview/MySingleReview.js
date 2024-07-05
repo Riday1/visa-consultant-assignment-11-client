@@ -1,7 +1,12 @@
 import React from 'react';
 
-const MySingleReview = ({ review }) => {
-    const { text, name, user_email, service_title, service_id, img } = review;
+const MySingleReview = ({ review, handleDelete }) => {
+    const { text, name, user_email, service_title, service_id, img, _id } = review;
+
+    const handleUpdate = () => {
+        fetch(``)
+    }
+
 
     return (
         <tr>
@@ -26,8 +31,8 @@ const MySingleReview = ({ review }) => {
             <th>{service_id}</th>
             <td>{user_email}</td>
             <td className='flex '>
-                <button className='btn btn-success text-white'>Update</button>
-                <button className='btn btn-warning ml-6'>Delete</button>
+                <button onClick={() => handleUpdate()} className='btn btn-success text-white'>Update</button>
+                <button onClick={() => handleDelete(_id)} className='btn btn-warning ml-6'>Delete</button>
             </td>
         </tr>
     );
