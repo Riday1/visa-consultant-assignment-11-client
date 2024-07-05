@@ -1,20 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import animation from '../../LottieAnimation/login_animation.json';
 import Lottie from 'react-lottie';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import googleLogo from "../../photos/social_icon/google.png"
+import instagramLogo from "../../photos/social_icon/instagram.png"
+import facebookLogo from "../../photos/social_icon/facebook.png"
+
 
 const Register = () => {
+
+    const { createUser, updateUser } = useContext(AuthContext)
+
     const handleSubmit = event => {
         event.preventDefault();
 
+
+
+
+
         const form = event.target;
-        console.log(form)
+
+        const name = form.name.value;
+        const photoUrl = form.photoUrl.value;
         const email = form.email.value
         const password = form.password.value
 
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
 
+                updateUser(name, photoUrl)
+                form.reset()
+            })
+            .catch(err => console.error(err))
 
     }
+
+
     const defaultOptions = {
         loop: true,
         autoplay: true,
@@ -61,7 +84,12 @@ const Register = () => {
                         </div>
                         <p className='text-center'>have an account? please <Link to='/login' className='text-indigo-500'>login</Link></p>
                         <div>
-                        
+
+                            <div className="flex justify-evenly my-2 px-8">
+                                <img src={googleLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                                <img src={facebookLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                                <img src={instagramLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                            </div>
                         </div>
                     </form>
                 </div>

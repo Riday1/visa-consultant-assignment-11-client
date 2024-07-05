@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import animation from '../../LottieAnimation/login_animation.json';
 import Lottie from 'react-lottie';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import googleLogo from "../../photos/social_icon/google.png"
+import instagramLogo from "../../photos/social_icon/instagram.png"
+import facebookLogo from "../../photos/social_icon/facebook.png"
+
+
 const Login = () => {
+    const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -14,7 +24,13 @@ const Login = () => {
         console.log(form)
         const email = form.email.value
         const password = form.password.value
-
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate('/')
+            })
+            .catch(err => console.error(err))
 
 
     }
@@ -35,7 +51,7 @@ const Login = () => {
                 </div>
                 <div className="bg-base-100 w-full max-w-sm shrink-0 shadow-2xl ml-10">
                     <form onSubmit={handleSubmit} className="card-body">
-                        <h1 className='text-4xl font-bold text-gray-700 text-center'>Sign In</h1>
+                        <h1 className='text-4xl font-bold text-gray-700 text-center'>Login</h1>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -55,8 +71,14 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                         <p className='text-center'>don't have any account?<Link to='/register' className='text-indigo-500'>register</Link></p>
+                        <div className="flex justify-evenly my-2 px-8">
+                            <img src={googleLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                            <img src={facebookLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                            <img src={instagramLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                        </div>
                     </form>
                 </div>
+
             </div>
         </div>
     );

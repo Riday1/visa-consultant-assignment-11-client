@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../photos/logo_1.png'
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                alert('logout successfully')
+            })
+    }
     return (
         <div className="navbar bg-slate-300">
             <div className="navbar-start">
@@ -23,11 +33,15 @@ const Header = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><Link to='/home'>Home</Link></li>
+                        <li><Link to='/]
+                        '>Home</Link></li>
                         <li>
-                            <Link to='/my-review'>Item 3</Link>
+                            <Link to='/my-review'>My Review</Link>
                         </li>
-                        <li><Link to='/about'>Item 3</Link></li>
+                        <li><Link to='/add-services'>Add Services</Link></li>
+                        <li><Link to='/about-us'>About Us</Link></li>
+                        <li><Link to='/contact'>Contact</Link></li>
+
                     </ul>
                 </div>
 
@@ -37,14 +51,32 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to='/home' className='text-lg'>Item 1</Link></li>
-                    <li><Link to='/my-review' className='text-lg'> item 2</Link></li>
-                    <li><Link to='/about' className='text-lg'>Item 3</Link></li>
+                    <li><Link to='/' className='text-lg'>Home</Link></li>
+                    {
+                        user && <><li><Link to='/my-review' className='text-lg'>My Review</Link></li>
+                            <li><Link to='/add-services' className='text-lg'>Add Services</Link></li></>
+                    }
+                    <li><Link to='/about-us' className='text-lg'>About Us</Link></li>
+                    <li><Link to='/contact' className='text-lg'>Contact</Link></li>
                 </ul>
             </div>
             <div className="navbar-end ">
-                <Link to='/login' className="btn btn-primary btn-sm text-lg ">Login</Link>
-                <Link to='/register' className="btn btn-warning btn-sm ml-4 text-lg">SignUp</Link>
+                {
+                    user ?
+                        <>
+                            <div className="avatar">
+                                <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring ring-offset-2">
+                                    <img src={user?.photoURL} alt='' />
+                                </div>
+                            </div>
+                            <button onClick={handleLogout} className='btn btn-sm btn-primary ml-6'>logout </button>
+                        </>
+                        :
+                        <>
+                            <Link to='/login' className="btn btn-primary btn-sm text-lg ">Login</Link>
+                            <Link to='/register' className="btn btn-warning btn-sm ml-4 text-lg">SignUp</Link>
+                        </>
+                }
             </div>
         </div>
     );
