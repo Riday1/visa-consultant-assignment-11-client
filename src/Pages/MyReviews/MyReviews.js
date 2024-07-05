@@ -45,6 +45,7 @@ const MyReviews = () => {
                             <th>SL.</th>
                             <th>User Name</th>
                             <th>Review Text</th>
+                            <th>Ratings</th>
                             <th>Service Name</th>
                             <th>Service Id</th>
                             <th>User Email</th>
