@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/all-services',
-                loader: () => fetch(`http://localhost:5000/all-services`),
+                loader: () => fetch(`https://assignment-11-server-ashen.vercel.app/all-services`),
                 element: <AllServices></AllServices>
             },
             {
@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/add-review/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-11-server-ashen.vercel.app/services/${params.id}`),
                 element: <AddReview></AddReview>
             },
             {
@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/update-review/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/review/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-11-server-ashen.vercel.app/review/${params.id}`),
                 element: <UpdateReview></UpdateReview>
             },
             {

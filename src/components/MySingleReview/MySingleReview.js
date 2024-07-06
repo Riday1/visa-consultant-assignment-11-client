@@ -7,7 +7,7 @@ const MySingleReview = ({ review, handleDelete }) => {
 
 
     const handleUpdate = (id) => {
-        // fetch(`http://localhost:5000/reviews/${id}`, {
+        // fetch(`https://assignment-11-server-ashen.vercel.app/reviews/${id}`, {
         //     method: 'PATCH',
         //     headers: {
         //         'content-type': 'application/json'

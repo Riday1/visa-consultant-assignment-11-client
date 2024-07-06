@@ -1,8 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Blogs = () => {
     return (
         <div className='h-screen '>
+            <Helmet>
+                <title>Blog - kopa visa consultant</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
             <h1 className=' text-6xl font-bold text-indigo-500 text-center mt-20'>FAQ</h1>
             <div className="join join-vertical w-full  my-20 flex justify-center items-center flex-col gap-10">
                 <div className="collapse collapse-arrow join-item border-base-300 border w-2/3  ">

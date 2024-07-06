@@ -7,7 +7,7 @@ const ProfessionalTeam = () => {
     const [employes, setEmployes] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/employes')
+        fetch('https://assignment-11-server-ashen.vercel.app/employes')
             .then(res => res.json())
             .then(data => {
                 setEmployes(data)

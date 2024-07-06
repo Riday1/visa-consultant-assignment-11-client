@@ -34,7 +34,7 @@ const Login = () => {
                     title: "Successfully Login",
                     icon: "success"
                 });
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://assignment-11-server-ashen.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -71,7 +71,7 @@ const Login = () => {
                     title: "Successfully Login",
                     icon: "success"
                 });
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://assignment-11-server-ashen.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

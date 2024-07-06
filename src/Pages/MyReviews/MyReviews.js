@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import MySingleReview from '../../components/MySingleReview/MySingleReview';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const MyReviews = () => {
 
@@ -10,7 +11,7 @@ const MyReviews = () => {
     const [myReviews, setMyReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-reviews?email=${user?.email}`, {
+        fetch(`https://assignment-11-server-ashen.vercel.app/my-reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('review-token')}`
             }
@@ -30,7 +31,7 @@ const MyReviews = () => {
 
     // for delete review
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://assignment-11-server-ashen.vercel.app/reviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -48,6 +49,10 @@ const MyReviews = () => {
     }
     return (
         <div className='my-20'>
+            <Helmet>
+                <title>My review - kopa visa consultant</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
             {
                 myReviews.length > 0 ?
 

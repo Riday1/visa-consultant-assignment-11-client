@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const AddService = () => {
 
@@ -30,7 +31,7 @@ const AddService = () => {
         }
 
 
-        fetch(`http://localhost:5000/add-new-services`, {
+        fetch(`https://assignment-11-server-ashen.vercel.app/add-new-services`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -53,7 +54,10 @@ const AddService = () => {
     }
     return (
         <div className='my-20'>
-
+            <Helmet>
+                <title>Add service - kopa visa consultant</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
             {
                 user ?
 

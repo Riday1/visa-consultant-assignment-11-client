@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const AddReview = () => {
 
@@ -28,7 +29,7 @@ const AddReview = () => {
             user_email: user?.email,
         }
 
-        fetch(`http://localhost:5000/reviews`, {
+        fetch(`https://assignment-11-server-ashen.vercel.app/reviews`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -53,6 +54,10 @@ const AddReview = () => {
 
     return (
         <div className='my-20'>
+            <Helmet>
+                <title>Add review - kopa visa consultant</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
             {
                 user ?
 
