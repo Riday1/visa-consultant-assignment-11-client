@@ -3,7 +3,7 @@ import sideImage from '../../photos/images/side_image_1.jpg'
 import { FaRegCircleCheck } from "react-icons/fa6";
 const AboutUs = () => {
     return (
-        <section>
+        <section className='px-20'>
             <p className='text-gray-400 text-lg text-center font-bold my-4'>Speciality of us</p>
             <h1 className=' text-6xl font-bold text-indigo-500 text-center'>Reasons To Choose Us</h1>
             <div className='grid grid-cols-2 gap-10 my-20'>

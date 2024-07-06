@@ -32,7 +32,7 @@ const Header = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ">
                         <li><Link to='/]
                         '>Home</Link></li>
                         <li>
@@ -41,6 +41,9 @@ const Header = () => {
                         <li><Link to='/add-services'>Add Services</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
                         <li><Link to='/contact'>Contact</Link></li>
+                        {
+                            user && <li><button onClick={handleLogout} className='btn btn-sm btn-primary'>logout </button></li>
+                        }
 
                     </ul>
                 </div>
@@ -51,13 +54,14 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to='/' className='text-lg'>Home</Link></li>
+                    <li><Link to='/' className='text-lg font-semibold text-indigo-600'>Home</Link></li>
                     {
-                        user && <><li><Link to='/my-reviews' className='text-lg'>My Reviews</Link></li>
-                            <li><Link to='/add-services' className='text-lg'>Add Services</Link></li></>
+                        user && <><li><Link to='/my-reviews' className='text-lg font-semibold text-indigo-600'>My Reviews</Link></li>
+                            <li><Link to='/add-services' className='text-lg font-semibold text-indigo-600'>Add Services</Link></li></>
                     }
-                    <li><Link to='/blogs' className='text-lg'>Blogs</Link></li>
-                    <li><Link to='/contact' className='text-lg'>Contact</Link></li>
+                    <li><Link to='/blogs' className='text-lg font-semibold text-indigo-600'>Blogs</Link></li>
+                    <li><Link to='/contact' className='text-lg font-semibold text-indigo-600'>Contact</Link></li>
+
                 </ul>
             </div>
             <div className="navbar-end ">
@@ -66,10 +70,10 @@ const Header = () => {
                         <>
                             <div className="avatar">
                                 <div className="ring-primary ring-offset-base-100 w-8 rounded-full ring ring-offset-2">
-                                    <img src={user?.photoURL} alt='' />
+                                    <Link to='/profile'><img src={user?.photoURL} alt='' /></Link>
                                 </div>
                             </div>
-                            <button onClick={handleLogout} className='btn btn-sm btn-primary ml-6'>logout </button>
+                            <button onClick={handleLogout} className='btn btn-sm btn-primary ml-6 hidden lg:block'>logout </button>
                         </>
                         :
                         <>

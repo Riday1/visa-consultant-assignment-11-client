@@ -2,20 +2,30 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import MySingleReview from '../../components/MySingleReview/MySingleReview';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const MyReviews = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-reviews?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/my-reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('review-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut();
+                }
+                return res.json()
+            })
             .then(data => {
                 setMyReviews(data)
                 // console.log(data)
             })
-    }, [user?.email])
+    }, [user?.email, logOut])
 
 
     // for delete review
@@ -27,7 +37,10 @@ const MyReviews = () => {
             .then(data => {
                 if (data.deletedCount) {
 
-                    alert('review is deleted')
+                    Swal.fire({
+                        title: "Review Delete",
+                        icon: "success"
+                    });
                     const remaining = myReviews.filter(rvw => rvw._id !== id)
                     setMyReviews(remaining)
                 }

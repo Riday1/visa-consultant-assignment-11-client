@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddService = () => {
 
@@ -40,7 +41,10 @@ const AddService = () => {
             .then(data => {
 
                 if (data?.acknowledged) {
-                    alert('New service added')
+                    Swal.fire({
+                        title: "Service Added",
+                        icon: "success"
+                    });
                     navigate(`/all-services`)
                     form.reset()
                 }

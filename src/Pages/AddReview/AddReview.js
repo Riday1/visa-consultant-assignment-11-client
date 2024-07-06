@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddReview = () => {
 
@@ -26,7 +27,6 @@ const AddReview = () => {
             user_email: user?.email,
         }
 
-        console.log(review)
         fetch(`http://localhost:5000/reviews`, {
             method: 'POST',
             headers: {
@@ -36,10 +36,11 @@ const AddReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-
                 if (data?.acknowledged) {
-                    alert('review added')
+                    Swal.fire({
+                        title: "Review Added",
+                        icon: "success"
+                    });
                     navigate(`/services/${_id}`)
                     form.reset()
                 }

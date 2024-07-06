@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateReview = () => {
     const { user } = useContext(AuthContext);
@@ -21,6 +22,7 @@ const UpdateReview = () => {
             ratings: updateRatings
         }
 
+
         fetch(`http://localhost:5000/reviews/${_id}`, {
             method: 'PATCH',
             headers: {
@@ -30,10 +32,11 @@ const UpdateReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount) {
-
-                    alert('updated')
+                    Swal.fire({
+                        title: "Review Update",
+                        icon: "success"
+                    });
                     navigate('/my-reviews')
                 }
             })

@@ -22,14 +22,14 @@ const Login = () => {
 
 
         const form = event.target;
-        console.log(form)
+
         const email = form.email.value
         const password = form.password.value
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 const currentUser = { email: user?.email }
-                console.log(user)
+
                 Swal.fire({
                     title: "Successfully Login",
                     icon: "success"
@@ -44,7 +44,7 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data.token)
+
                         localStorage.setItem('review-token', data.token)
                     })
                 navigate('/')
@@ -66,7 +66,24 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                const currentUser = { email: user?.email }
+                Swal.fire({
+                    title: "Successfully Login",
+                    icon: "success"
+                });
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        localStorage.setItem('review-token', data.token)
+                    })
                 navigate('/')
             })
             .catch(err => console.error(err))

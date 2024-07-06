@@ -14,6 +14,7 @@ import AddService from "../Pages/AddService/AddService";
 import Blogs from "../Pages/Blogs/Blogs";
 import Login1 from "../Pages/Login1/Login1";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import UserProfile from "../Pages/UserProfile/UserProfile";
 
 export const router = createBrowserRouter([
     {
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <ContactUs></ContactUs>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
             }
 
         ]
