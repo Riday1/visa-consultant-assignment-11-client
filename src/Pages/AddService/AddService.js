@@ -53,7 +53,7 @@ const AddService = () => {
 
     }
     return (
-        <div className='my-20'>
+        <div className='my-20 px-20 md:px-10'>
             <Helmet>
                 <title>Add service - kopa visa consultant</title>
                 <link rel="canonical" href="https://www.tacobell.com/" />
