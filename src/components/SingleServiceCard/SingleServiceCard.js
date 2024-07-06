@@ -17,7 +17,7 @@ const SingleServiceCard = ({ service }) => {
                     <img
                         src={img}
                         alt="Shoes"
-                        className='' />
+                        className='h-56' />
                 </PhotoView>
             </PhotoProvider>
             <div className="card-body">

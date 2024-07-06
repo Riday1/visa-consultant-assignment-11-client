@@ -35,31 +35,48 @@ const MyReviews = () => {
     }
     return (
         <div className='my-20'>
+            {
+                myReviews.length > 0 ?
 
-            <h1 className=' text-6xl font-bold text-indigo-500 text-center my-10'>Your Reviews</h1>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>SL.</th>
-                            <th>User Name</th>
-                            <th>Review Text</th>
-                            <th>Ratings</th>
-                            <th>Service Name</th>
-                            <th>Service Id</th>
-                            <th>User Email</th>
-                            <th>Operation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            myReviews?.map(review => <MySingleReview key={review._id} review={review} handleDelete={handleDelete}></MySingleReview>)
-                        }
+                    <div className='h-screen'>
+                        <h1 className=' text-6xl font-bold text-indigo-500 text-center my-10'>Your Reviews</h1>
+                        <div className="overflow-x-auto">
 
-                    </tbody>
-                </table>
-            </div>
+                            <table className="table">
+                                {/* head */}
+                                <thead>
+                                    <tr>
+                                        <th>SL.</th>
+                                        <th>User Name</th>
+                                        <th>Review Text</th>
+                                        <th>Ratings</th>
+                                        <th>Service Name</th>
+                                        <th>Service Id</th>
+                                        <th>User Email</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        myReviews.map(review => <MySingleReview key={review._id} review={review} handleDelete={handleDelete}></MySingleReview>)
+
+
+                                    }
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    :
+                    <div className='h-screen flex justify-center items-center'>
+                        <h1 className='text-2xl text-gray-600 text-center my-20'>No review has found</h1>
+                    </div>
+            }
+
+
         </div >
     );
 };

@@ -9,7 +9,7 @@ import facebookLogo from "../../photos/social_icon/facebook.png"
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
@@ -43,6 +43,17 @@ const Login = () => {
         }
     };
 
+    const handleLoginWithGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate('/')
+            })
+            .catch(err => console.error(err))
+    }
+
+
     return (
         <div className=" bg-base-200 min-h-screen">
             <div className="flex min-h-screen flex-col lg:flex-row justify-evenly items-center px-20">
@@ -72,7 +83,7 @@ const Login = () => {
                         </div>
                         <p className='text-center'>don't have any account?<Link to='/register' className='text-indigo-500'>register</Link></p>
                         <div className="flex justify-evenly my-2 px-8">
-                            <img src={googleLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                            <img onClick={handleLoginWithGoogle} src={googleLogo} className='w-8 h-8 cursor-pointer' alt="" />
                             <img src={facebookLogo} className='w-8 h-8 cursor-pointer' alt="" />
                             <img src={instagramLogo} className='w-8 h-8 cursor-pointer' alt="" />
                         </div>

@@ -39,7 +39,7 @@ const Header = () => {
                             <Link to='/my-reviews'>My Reviews</Link>
                         </li>
                         <li><Link to='/add-services'>Add Services</Link></li>
-                        <li><Link to='/about-us'>About Us</Link></li>
+                        <li><Link to='/blogs'>Blogs</Link></li>
                         <li><Link to='/contact'>Contact</Link></li>
 
                     </ul>
@@ -56,7 +56,7 @@ const Header = () => {
                         user && <><li><Link to='/my-reviews' className='text-lg'>My Reviews</Link></li>
                             <li><Link to='/add-services' className='text-lg'>Add Services</Link></li></>
                     }
-                    <li><Link to='/about-us' className='text-lg'>About Us</Link></li>
+                    <li><Link to='/blogs' className='text-lg'>Blogs</Link></li>
                     <li><Link to='/contact' className='text-lg'>Contact</Link></li>
                 </ul>
             </div>

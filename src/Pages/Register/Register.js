@@ -10,7 +10,7 @@ import facebookLogo from "../../photos/social_icon/facebook.png"
 
 const Register = () => {
 
-    const { createUser, updateUser } = useContext(AuthContext)
+    const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext)
     const navigate = useNavigate();
 
 
@@ -39,6 +39,16 @@ const Register = () => {
             })
             .catch(err => console.error(err))
 
+    }
+
+    const handleLoginWithGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate('/')
+            })
+            .catch(err => console.error(err))
     }
 
 
@@ -90,7 +100,7 @@ const Register = () => {
                         <div>
 
                             <div className="flex justify-evenly my-2 px-8">
-                                <img src={googleLogo} className='w-8 h-8 cursor-pointer' alt="" />
+                                <img onClick={handleLoginWithGoogle} src={googleLogo} className='w-8 h-8 cursor-pointer' alt="" />
                                 <img src={facebookLogo} className='w-8 h-8 cursor-pointer' alt="" />
                                 <img src={instagramLogo} className='w-8 h-8 cursor-pointer' alt="" />
                             </div>

@@ -20,7 +20,7 @@ const MySingleReview = ({ review, handleDelete }) => {
 
 
     return (
-        <tr>
+        <tr className='hover:bg-slate-300 duration-100'>
             <th>1</th>
             <td>
                 <div className="flex items-center gap-3">
@@ -42,10 +42,13 @@ const MySingleReview = ({ review, handleDelete }) => {
             <td>{service_title}</td>
             <th>{service_id}</th>
             <td>{user_email}</td>
-            <td className='flex '>
-                <button onClick={() => handleUpdate(_id)} className='btn btn-success text-white'>Update</button>
-                <button onClick={() => handleDelete(_id)} className='btn btn-warning ml-6'>Delete</button>
+            <td>
+                <div className='flex justify-center items-center'>
+                    <button onClick={() => handleUpdate(_id)} className='btn btn-success text-white'>Update</button>
+                    <button onClick={() => handleDelete(_id)} className='btn btn-warning ml-6'>Delete</button>
+                </div>
             </td>
+
         </tr>
     );
 };
