@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../photos/logo_1.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
@@ -9,7 +10,10 @@ const Header = () => {
     const handleLogout = () => {
         logOut()
             .then(() => {
-                alert('logout successfully')
+                Swal.fire({
+                    title: "User logout",
+                    icon: "success"
+                });
             })
     }
     return (

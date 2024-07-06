@@ -15,6 +15,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Login1 from "../Pages/Login1/Login1";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import UserProfile from "../Pages/UserProfile/UserProfile";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -78,6 +79,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
             }
 
-        ]
+        ],
+        errorElement: <ErrorPage></ErrorPage>,
     }
 ])
