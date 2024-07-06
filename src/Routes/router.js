@@ -12,6 +12,8 @@ import UpdateReview from "../components/UpdateReview/UpdateReview";
 import PrivateRoute from "../context/PrivateRoute/PrivateRoute";
 import AddService from "../Pages/AddService/AddService";
 import Blogs from "../Pages/Blogs/Blogs";
+import Login1 from "../Pages/Login1/Login1";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 export const router = createBrowserRouter([
     {
@@ -47,7 +49,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/my-reviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
                 path: '/update-review/:id',
@@ -56,11 +58,19 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/add-services',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/login1',
+                element: <Login1></Login1>
+            },
+            {
+                path: '/contact',
+                element: <ContactUs></ContactUs>
             }
 
         ]

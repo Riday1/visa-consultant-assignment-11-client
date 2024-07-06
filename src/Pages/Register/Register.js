@@ -36,6 +36,7 @@ const Register = () => {
                 updateUser(name, photoUrl)
                 form.reset()
                 navigate('/login')
+                
             })
             .catch(err => console.error(err))
 

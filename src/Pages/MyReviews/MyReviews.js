@@ -60,7 +60,6 @@ const MyReviews = () => {
                                     {
                                         myReviews.map(review => <MySingleReview key={review._id} review={review} handleDelete={handleDelete}></MySingleReview>)
 
-
                                     }
 
 

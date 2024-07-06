@@ -5,7 +5,7 @@ import logo from '../../photos/logo_1.png';
 
 const Footer = () => {
     return (
-        <footer className=" divide-y bg-gray-200 dark:text-gray-800">
+        <footer className=" divide-y bg-slate-300 dark:text-gray-800">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <a rel="noopener noreferrer" href="#" className="">
