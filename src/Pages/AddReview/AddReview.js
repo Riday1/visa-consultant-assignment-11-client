@@ -10,13 +10,14 @@ const AddReview = () => {
     const navigate = useNavigate();
 
 
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const form = event.target;
         const reviewText = form.review.value;
         const ratings = form.ratings.value;
-
+        console.log(typeof ratingss)
         const review = {
             text: reviewText,
             name: user?.displayName,
@@ -52,7 +53,6 @@ const AddReview = () => {
 
     return (
         <div className='my-20'>
-
             {
                 user ?
 
@@ -64,7 +64,14 @@ const AddReview = () => {
                                 <input type="email" name='email' placeholder="email" defaultValue={user?.email} className="input input-bordered text-lg py-8 w-full " />
                                 <input type="text" name='serviceName' placeholder="service name" defaultValue={title} className="input input-bordered text-lg py-8 w-full " />
                                 <input type="text" name='serviceId' placeholder="service id" defaultValue={_id} className="input input-bordered text-lg py-8 w-full " />
-                                <input type="text" name='ratings' placeholder="Ratings " className="input input-bordered text-lg py-8 w-full " />
+                                <select name="ratings" id="" className='w-full rounded-lg border-[1px] border-gray-300 py-5' placeholder="Ratings">
+                                    <option value="">Ratings</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                             </div>
                             <>
                                 <textarea className="textarea textarea-bordered w-full h-52 my-10" name='review' placeholder="Bio"></textarea>
