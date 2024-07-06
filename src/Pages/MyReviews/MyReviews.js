@@ -48,7 +48,7 @@ const MyReviews = () => {
             })
     }
     return (
-        <div className='my-20 h-screen'>
+        <div className='my-20 h-full'>
             <Helmet>
                 <title>My review - kopa visa consultant</title>
                 <link rel="canonical" href="https://www.tacobell.com/" />
@@ -56,7 +56,7 @@ const MyReviews = () => {
             {
                 myReviews.length > 0 ?
 
-                    <div className='h-screen'>
+                    <div className=''>
                         <h1 className=' text-6xl font-bold text-indigo-500 text-center my-10'>Your Reviews</h1>
                         <div className="overflow-x-auto">
 
@@ -92,8 +92,6 @@ const MyReviews = () => {
                         <h1 className='text-2xl text-gray-600 text-center my-20'>No review has found</h1>
                     </div>
             }
-
-
         </div >
     );
 };
