@@ -48,7 +48,7 @@ const MyReviews = () => {
             })
     }
     return (
-        <div className='my-20'>
+        <div className='my-20 h-screen'>
             <Helmet>
                 <title>My review - kopa visa consultant</title>
                 <link rel="canonical" href="https://www.tacobell.com/" />
